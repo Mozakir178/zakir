@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+    <style>
+        body {}
+        
+        body>div:first-child {
+            background-color: yellow;
+            padding: 1px 20px;
+        }
+        
+        body>div:nth-child(2) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 170px);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        body>div:nth-child(2)>div {
+            background-color: green;
+        }
+        
+        body>div:nth-child(2)>div:first-child {
+            background-color: red;
+            grid-area: 1/1/4/3;
+        }
+        
+        @media all and (min-width:480px) and (max-width:720px) {
+            body>div:nth-child(2)>div:first-child {
+                background-color: red;
+                grid-area: 1/1/3/4;
+            }
+        }
+        
+        @media all and (min-width:50px) and (max-width:479px) {
+            body>div:nth-child(2) {
+                grid-template-rows: repeat(5, 80px);
+                grid-template-columns: repeat(1, 1fr);
+            }
+            body>div:nth-child(2)>div:first-child {
+                grid-area: 1/1/3/2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>
+            Navigation
+        </h1>
+
+
+    </div>
+
+
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

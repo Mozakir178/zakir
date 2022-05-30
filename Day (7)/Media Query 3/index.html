@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query 3</title>
+    <style>
+        h1 {
+            background-color: yellow;
+            box-sizing: border-box;
+            height: 50px;
+            padding: 5px;
+        }
+        
+        div:only-of-type {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 300px;
+            gap: 20px;
+        }
+        
+        div>div:nth-child(1) {
+            background-color: red;
+        }
+        
+        div>div:nth-child(2) {
+            background-color: green;
+        }
+        
+        div>div:nth-child(3) {
+            background-color: blue;
+        }
+        
+        div>div:nth-child(4) {
+            background-color: gray;
+        }
+        
+        @media all and (min-width:420px) and (max-width:720px) {
+            div:only-of-type {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 300px 300px;
+            }
+        }
+        
+        @media all and (min-width:50px) and (max-width:419px) {
+            div:only-of-type {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 120px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Navigation
+    </h1>
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zigzag grid</title>
+    <style>
+        body>div {
+            width: 60%;
+            display: grid;
+            grid-template-columns: repeat(4, 250pxfr);
+            grid-template-rows: repeat(3, 140px);
+            margin: 170px auto;
+            gap: 40px;
+            grid-template-areas: "a b b c" "d d e f" "g h i i";
+        }
+        
+        div>div {
+            display: flex;
+            background-color: #444444;
+            border-radius: 10px;
+            height: 100%;
+            box-sizing: border-box;
+            padding-left: 40px;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        div>div:nth-child(1) {
+            grid-area: a;
+            padding: 29px
+        }
+        
+        div>div:nth-child(2) {
+            grid-area: b;
+        }
+        
+        div>div:nth-child(3) {
+            grid-area: c;
+        }
+        
+        div>div:nth-child(4) {
+            grid-area: d;
+            width: 105%;
+        }
+        
+        div>div:nth-child(5) {
+            grid-area: e;
+            width: 110%;
+            box-sizing: border-box;
+        }
+        
+        div>div:nth-child(6) {
+            grid-area: f
+        }
+        
+        div>div:nth-child(7) {
+            grid-area: g
+        }
+        
+        div>div:nth-child(8) {
+            grid-area: h
+        }
+        
+        div>div:nth-child(9) {
+            grid-area: i
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body>
+
+</html>

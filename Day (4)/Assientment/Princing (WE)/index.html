@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #heading {
+            text-align: center;
+            width: 35%;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+        
+        #heading>h1 {
+            font-size: 40px;
+        }
+        
+        #heading>p {
+            font-size: 20px;
+            line-height: 22px;
+            color: rgb(109, 98, 98);
+        }
+        
+        #cards-section {
+            width: 60%;
+            display: flex;
+            margin: auto;
+            margin-top: 30px;
+        }
+        
+        #cards-section>div {
+            width: 30%;
+            margin: auto;
+            height: 100%;
+            text-align: center;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            border-radius: 15px;
+            padding-bottom: 50px;
+        }
+        
+        #cards-section>div>p+p {
+            line-height: 22px;
+            font-size: 20px;
+        }
+        
+        #cards-section>div:nth-child(1)>h2+h2 {
+            color: green;
+            margin-bottom: -10px;
+            font-style: italic;
+        }
+        
+        #cards-section>div:nth-child(2)>h2+h2 {
+            color: orange;
+            margin-bottom: -10px;
+            font-style: italic;
+        }
+        
+        #cards-section>div:nth-child(3)>h2+h2 {
+            color: blue;
+            margin-bottom: -10px;
+            font-style: italic;
+        }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 15px;
+            font-weight: bold;
+            border: 1px solid blue;
+            color: blue;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        #cards-section>div>p+p {
+            padding: 0px 25px;
+            line-height: 1.5em;
+            font-size: 17px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="heading">
+        <h1>Choose a plan that right for your business</h1>
+        <p>
+            We collect reviews from our users so you can get an honest opinion of what an experience with our website are really like!
+        </p>
+    </div>
+
+    <!-- Cards section -->
+    <div id="cards-section">
+        <div>
+            <h2>Starter Plan</h2>
+            <h2>$59.00</h2>
+            <p>Per month</p>
+            <p>
+                We collect reviews from our users so you can get an honest opinion of what an experience with our website.
+            </p>
+            <button>
+  Start Now
+</button>
+        </div>
+        <div>
+            <h2>Starter Plan</h2>
+            <h2>$59.00</h2>
+            <p>Per month</p>
+            <p>
+                We collect reviews from our users so you can get an honest opinion of what an experience with our website.
+            </p>
+            <button>
+Start Now
+</button>
+        </div>
+        <div>
+            <h2>Starter Plan</h2>
+            <h2>$59.00</h2>
+            <p>Per month</p>
+            <p>
+                We collect reviews from our users so you can get an honest opinion of what an experience with our website.
+            </p>
+            <button>
+Start Now
+</button>
+        </div>
+        <!-- This section should contain 3 children divs, each div should have h2,h1,p,p,button -->
+    </div>
+</body>
+
+</html>

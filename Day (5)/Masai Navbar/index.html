@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #nav {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-around;
+            padding: 100px 0px;
+        }
+        
+        #nav>div>div>p:hover {
+            color: #ed0b3d;
+        }
+        
+        button:hover {
+            background-color: #e6023346;
+        }
+        
+        #nav>div:first-child {
+            width: 10%;
+            height: 100%;
+            margin-left: 150px;
+            margin-right: -50px;
+        }
+        
+        #nav>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            /* border: 1px solid black; */
+        }
+        
+        #nav>div>div {
+            display: flex;
+        }
+        
+        #nav>div>div>* {
+            padding: 0px 20px;
+        }
+        
+        #courses {
+            border: none;
+        }
+        
+        button {
+            color: #ed0b3d;
+            width: 80px;
+            font-weight: bold;
+            height: 45px;
+            margin-right: 100px;
+            margin-left: -60px;
+            border-radius: 10px;
+            border: 1px solid #ed0b3d;
+        }
+        
+        select {
+            font-weight: bold;
+        }
+        
+        select:hover {
+            color: #ed0b3d;
+        }
+        
+        div>p+img {
+            width: 25px;
+            height: 30px;
+            padding-left: 5px;
+        }
+        
+        #nav>div:nth-child(2) {
+            width: 70%;
+            height: 100%;
+        }
+        
+        p+div {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            color: #007aff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+
+        <div>
+            <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
+        </div>
+        <div>
+            <div>
+                <select name="courses" id="courses">
+                    <option value="COURSES">COURSES</option>
+                </select>
+                <p>
+                    fees & isa
+                </p>
+                <p>
+                    about us
+                </p>
+                <p>
+                    hire from us
+                </p>
+                <p>
+                    faq
+                </p>
+                <p>
+                    events
+                </p>
+                <div>
+                    <p>
+                        refer & earn
+
+                    </p>
+                    <img src="https://www.masaischool.com/img/referral/hand.png" alt="">
+                </div>
+
+
+            </div>
+
+        </div>
+        <button>
+            LOG IN
+        </button>
+    </div>
+</body>
+
+</html>
