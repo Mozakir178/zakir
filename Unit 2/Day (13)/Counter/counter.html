@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+    <style>
+        div {
+            width: 30% !important;
+            margin: auto;
+            text-align: center;
+            margin-top: 100px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 30px;
+            border-radius: 10px;
+        }
+        
+        button:first-of-type {
+            background-color: green;
+        }
+        
+        button:last-of-type {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1></h1>
+
+        <button>Increment</button>
+        <button>Decrement</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let count = JSON.parse(localStorage.getItem('count'));
+    if (count == null) {
+        count = 0;
+        document.querySelector('h1').innerHTML = count;
+    } else {
+
+        document.querySelector('h1').innerHTML = count;
+    }
+
+    document.querySelector('button').addEventListener('click', inc);
+    document.querySelector('button+button').addEventListener('click', dec);
+
+    function inc(event) {
+        localStorage.setItem('count', count)
+        document.querySelector('h1').innerHTML = count++
+
+    }
+
+    function dec(event) {
+        localStorage.setItem('count', count)
+        document.querySelector('h1').innerHTML = count--
+
+    }
+</script>

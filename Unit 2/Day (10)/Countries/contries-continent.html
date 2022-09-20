@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        
+        h1 {
+            margin-top: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+
+        <select name="Countries" id="con">
+   <option value="India">
+    India
+   </option>
+   <option value="United_States_of_America">
+
+    United States of America
+   </option>
+ 
+   <option value="China">
+    China
+    
+    </option>
+
+<option value="Nepal">
+
+    Nepal
+</option>
+
+<option value="Australia">
+    Australia
+    
+</option>
+
+<option value="France">
+    France
+    
+</option>
+
+<option value="Germany">
+    Germany
+    
+</option>
+
+<option value="South_Africa">
+
+    South Africa
+</option>
+
+<option value="Nigeria">
+    Nigeria
+    
+</option>
+
+<option value="Mexico">
+
+    Mexico
+</option>
+
+<option value="Argentina">
+
+    Argentina
+</option>
+
+<option value="Brazil">
+
+    Brazil
+</option>
+
+<option value="Canada">
+
+    Canada
+</option>
+<option value="Singapore">
+    Singapore
+</option>
+<option value="Sweden">Sweden</option>
+</select>
+
+
+        <button>
+    Get Continent
+</button>
+
+    </div>
+
+    <h1 id="result">
+        Please select your country.
+    </h1>
+</body>
+
+</html>
+
+<script>
+    let obj = {
+
+        India: "Asia",
+        United_States_of_America: "North America",
+        China: "Asia",
+        Nepal: "Asia",
+        Australia: "Australia",
+        France: "Europe",
+        Germany: "Europe",
+        South_Africa: "Africa",
+        Nigeria: "Africa",
+        Mexico: "North America",
+        Argentina: "Africa",
+        Brazil: "South America",
+        Canada: "North America",
+        Singapore: "Asia",
+        Sweden: "Europe"
+
+
+
+    }
+    let z = document.getElementsByTagName("button");
+    z[0].addEventListener("click", function country() {
+
+        let res = document.getElementById("con").value;
+        // console.log(res);
+        // document.getElementById("result").innerText = res;
+
+        for (let i in obj) {
+            if (res === i) {
+                console.log(i);
+                document.getElementById("result").innerText = "You have select " + i + " Continent of " + i + "  is " + obj[i];
+            }
+        }
+
+        alert(document.getElementById("result").innerText);
+
+    })
+
+    // console.log(obj)
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h4>
+        Please Enter Your Name
+    </h4>
+    <input id="name" type="text" value="">
+
+    <h4>
+        Please Enter Your Age
+    </h4>
+    <input id="age" type="number">
+    <br>
+    <br>
+
+
+    <button onClick="check()">
+        Check Elegibility
+    </button>
+
+    <p id="result"></p>
+
+</body>
+
+</html>
+
+
+<script>
+    function check() {
+        let age = document.getElementById("age").value;
+        if (age > 18) {
+            document.getElementById("result").innerText = "Congratulations You can drive in India"
+        } else if (age < 18) {
+            document.getElementById("result").innerText = "Sorry You can not drive in India Please wait " + (18 - age) + " more year"
+        } else if (age == 18) {
+            document.getElementById("result").innerText = "You are just old enough to drive in India"
+        }
+    }
+</script>

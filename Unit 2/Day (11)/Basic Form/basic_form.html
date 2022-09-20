@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form id="sub">
+        <input type="text">
+        <input type="number">
+        <select name="gender" id="gen">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Trans">Transgender</option>  
+        </select>
+        <input type="email">
+        <input type="number">
+
+        <input type="submit">
+
+    </form>
+</body>
+
+</html>
+<script>
+    let data = [];
+    document.getElementById("sub").addEventListener("submit", function subm() {
+        // console.log("Submitted")
+
+        event.preventDefault();
+
+        let a = document.getElementsByTagName("input");
+        // console.log(a)
+
+        let b = a[0].value;
+        let c = a[1].value;
+        let d = a[2].value;
+        let e = a[3].value;
+
+        let f = document.querySelector("select").value;
+
+        let obj = {
+                Name: a[0].value,
+                Age: a[1].value,
+                Gender: f,
+                Email: d,
+                Mobile: e
+            }
+            // console.log(a, b, c, d)
+
+        data.push(obj);
+
+
+        console.log(data)
+
+    })
+</script>

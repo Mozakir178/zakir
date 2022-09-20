@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            justify-content: center;
+            gap: 40px;
+        }
+        
+        button {
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let data = [{
+            name: "Primary",
+            color: "white",
+            bg: "blue"
+        }, {
+            name: "Secondary",
+            color: "white",
+            bg: "gray"
+        }, {
+            name: "Success",
+            color: "white",
+            bg: "green"
+        }, {
+            name: "Danger",
+            color: "white",
+            bg: "red"
+        }, {
+            name: "Warning",
+            color: "black",
+            bg: "yellow"
+        }, {
+            name: "Info",
+            color: "white",
+            bg: "blue"
+        }, {
+            name: "Light",
+            color: "black",
+            bg: "white"
+        }, {
+            name: "Dark",
+            color: "white",
+            bg: "black"
+        }, {
+            name: "Link",
+            color: "blue",
+            bg: "white"
+        }
+
+    ]
+    data.forEach(function(el) {
+        let a = document.createElement("button");
+        a.innerText = el.name;
+        a.style.color = el.color;
+        a.style.background = el.bg;
+        document.querySelector("body").append(a);
+
+    })
+</script>

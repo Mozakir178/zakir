@@ -1,0 +1,29 @@
+form {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin: 50px;
+}
+
+#report {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 80%;
+    justify-content: center;
+    gap: 40px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#report>div {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: rgb(19, 59, 240);
+    color: white;
+    border-radius: 10px;
+}

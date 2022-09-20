@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add To Card</title>
+    <style>
+        body>div:first-of-type {
+            position: sticky;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background-color: black;
+            color: white;
+            width: 90%;
+            margin: 50px auto;
+            border-radius: 15px;
+        }
+        
+        div:first-of-type>div:last-of-type {
+            display: flex;
+            gap: 70px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        body>div:last-child {
+            display: grid;
+            width: 70%;
+            margin: auto;
+            justify-content: center;
+            justify-items: center;
+            gap: 30px;
+        }
+        
+        div:last-child>div {
+            padding: 10px 20px;
+            display: flex;
+            width: 100%;
+            height: 100px;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid gray
+        }
+        
+        div:last-child>div>* {
+            text-align: center;
+            justify-content: center;
+            justify-items: center;
+        }
+        
+        div:last-child>div>img {
+            width: 100px;
+            height: 100px;
+        }
+        
+        div:last-child>div>h4 {
+            width: 300px;
+        }
+        
+        div:last-child>div>input {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+        
+        div:last-child>div>p {
+            width: 50px;
+        }
+        
+        #items,
+        #totalprice {
+            font-weight: bolder;
+            font-size: 25px;
+        }
+        
+        #cardinfo {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 20px;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h3>
+                <a href="index.html">Reebok</a>
+            </h3>
+
+        </div>
+        <div>
+            <h3> <a href="mens.html">Man</a> </h3>
+            <h3> <a href="women.html">Woman</a> </h3>
+            <h3> <a href="addtocard.html">Card</a> </h3>
+
+            <h3> <a href="signup.html">Signup</a> </h3>
+            <h3><a href="logout.html">Logout</a> </h3>
+
+        </div>
+    </div>
+
+
+    <div id="cardinfo">
+
+        <span id="items"> </span>
+        <span>Items</span><br>
+
+        <span id="totalprice"> </span>
+        <span>Total Price</span>
+        <br>
+
+        <input type="text" id="promo">
+        <button id="pro-btn" onclick="promo()">GET 30% OFF</button>
+        <button onclick="checkout()">Check Out</button>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    let data = JSON.parse(localStorage.getItem('addedtobookmarkedarr'));
+    console.log(data);
+
+    const totalprice = document.createElement('h1');
+    document.body.appendChild(totalprice);
+    let total = [];
+    let sum = 0;
+    document.getElementById('items').innerText = data.length;
+
+
+
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    data.forEach(appending);
+
+    function appending(el, index) {
+        const div = document.createElement('div');
+        const image = document.createElement('img');
+        image.src = el.image;
+        const name = document.createElement('h4');
+        name.innerText = el.name;
+        const quantity = document.createElement('input');
+        quantity.type = 'number';
+        quantity.value = 1
+        quantity.placeholder = "quantity"
+        const total = document.createElement('h5');
+        quantity.addEventListener('change', function() {
+            pri(total, quantity, price, sum)
+        });
+        const price = document.createElement('p');
+        price.innerText = el.price;
+
+        total.innerText = Number(quantity.value) * Number(price.innerText)
+        sum += Number(total.innerText);
+        document.getElementById('totalprice').innerHTML = sum;
+        const del = document.createElement('h6');
+        del.innerText = "DELETE";
+        del.addEventListener('click', function() {
+            dele(el, index);
+        })
+        div.append(image, name, price, quantity, total, del);
+        container.append(div);
+        // console.log(sum);
+    }
+
+    function pri(el, quantity, price, sum) {
+        console.log(el)
+        if (quantity.value > 0) {
+            el.innerText = Number(quantity.value) * Number(price.innerText)
+            sum += Number(el.innerText) - Number(price.innerText);
+            document.getElementById('totalprice').innerHTML = sum;
+        } else {
+            alert('quantity cannot be negative');
+            quantity.value = 1;
+        }
+        console.log(total)
+
+    }
+
+    function dele(el, index) {
+        document.querySelector('body>div').innerHTML = "";
+        data.splice(index, 1);
+        // data.forEach(appending);
+        localStorage.setItem('addedtobookmarkedarr', JSON.stringify(data))
+        window.location.reload();
+
+
+    }
+
+    document.getElementById('totalprice').innerText = sum;
+
+    function promo(event) {
+        let pr = document.getElementById('promo').value;
+        if (pr === "masai30") {
+            document.getElementById('totalprice').innerText = (sum * 0.7).toFixed(2);
+        } else
+            alert('wrong promotion code');
+    }
+
+    function checkout(event) {
+        window.location.href = "payment.html";
+    }
+</script>

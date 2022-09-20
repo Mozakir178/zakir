@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body>div:first-of-type {
+            display: grid;
+            grid-template-columns: 120px 120px;
+            grid-template-rows: 30px;
+            justify-content: space-around;
+            width: 50%;
+            margin: 10px auto;
+            justify-content: center;
+            align-items: center;
+            gap: 100px
+        }
+        
+        body>div:first-of-type>div:first-child {
+            border: 2px solid;
+            background-color: red;
+            text-align: center;
+        }
+        
+        p {
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        body>div:first-of-type>div:last-child {
+            border: 2px solid;
+            background-color: green;
+            text-align: center;
+        }
+        
+        body>div:nth-of-type(2) {
+            width: 25%;
+            height: 60px;
+            margin: auto;
+            border: 1px solid;
+            text-align: center;
+            background-color: gray;
+        }
+        
+        body>div:last-of-type {
+            display: grid;
+            width: 25%;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 40px);
+            margin: 30px auto;
+            gap: 40px 60px;
+        }
+        
+        body>div:last-of-type>div {
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+        
+        body>div:last-of-type>div:last-of-type {
+            grid-area: 4/2/5/3;
+        }
+        
+        .green {
+            background-color: green;
+        }
+        
+        .orange {
+            background-color: orange;
+        }
+        
+        .purpule {
+            background-color: purple;
+        }
+        
+        body>h1 {
+            width: 25%;
+            height: 70px;
+            margin: 30px auto;
+            justify-content: center;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div>
+            <h1 id="min">
+                43
+            </h1>
+        </div>
+        <div>
+            <h1 id="max">
+                123
+            </h1>
+        </div>
+    </div>
+
+    <p>
+        SCORE
+    </p>
+    <div>
+        <h1 id="dis">
+            #
+        </h1>
+    </div>
+
+    <div id="num">
+        <div class="green">1</div>
+        <div class="orange">2</div>
+        <div class="green">3</div>
+        <div class="orange">4</div>
+        <div class="orange">5</div>
+        <div class="orange">6</div>
+
+        <div class="green">7</div>
+        <div class="orange">8</div>
+        <div class="green">9</div>
+        <div class="purpule">0</div>
+    </div>
+
+    <h1 class="enter">
+        ENTER
+    </h1>
+</body>
+
+</html>
+<script>
+    let min = document.getElementById("min").innerText;
+    let max = document.getElementById("max").innerText;
+    let bag = "";
+
+    console.log(min, max);
+    let a = document.getElementsByClassName("enter");
+    a[0].addEventListener("click", function enter() {
+
+        bag = +(bag);
+
+        if (bag < min) {
+            document.getElementById("min").innerText = bag;
+            bag = "";
+        } else if (bag > max) {
+            document.getElementById("max").innerText = bag;
+            bag = "";
+            document.getElementById("dis").innerText = "";
+        }
+
+        console.log(min, max)
+
+
+    });
+
+    let z = document.querySelectorAll("#num>div");
+
+    for (let i = 0; i < z.length; i++) {
+        z[i].addEventListener("click", function bagi(event) {
+            let add = event.target.innerText;
+            bag += add;
+            document.getElementById("dis").innerText = bag;
+        });
+    }
+</script>

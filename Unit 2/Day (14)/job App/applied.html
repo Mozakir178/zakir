@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database</title>
+    <link rel="stylesheet" href="commonStyles.css" />
+</head>
+
+<body>
+    <div id="links">
+        <div><a href="index.html">Home</a></div>
+        <div><a href="applied.html">Applied Jobs</a></div>
+        <div><a href="bookmark.html">Bookmarks</a></div>
+    </div>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Job applied</th>
+                    <th>Salary expected</th>
+                    <th>Add to bookmark</th>
+                </tr>
+            </thead>
+            <tbody id="body">
+                <!-- Append your output to tbody -->
+            </tbody>
+        </table>
+    </main>
+</body>
+<script>
+    //you need to code here
+
+    let allData = JSON.parse(localStorage.getItem('jsonAppliedData'));
+    // console.log(allData);
+
+    allData.forEach(appending);
+
+    function appending(el, index) {
+        const tr = document.createElement('tr');
+
+        const td1 = document.createElement('td');
+        td1.innerHTML = el.name
+
+        const td2 = document.createElement('td');
+        td2.innerHTML = el.email
+
+        const td3 = document.createElement('td');
+        td3.innerHTML = el.role
+
+        const td4 = document.createElement('td');
+        td4.innerHTML = el.salary
+
+        const td5 = document.createElement('td');
+        td5.innerHTML = "Bookmarks"
+        td5.style.backgroundColor = "green";
+        td5.style.color = "white";
+        // td5.style.fontWeight = "bold";
+
+        tr.append(td1, td2, td3, td4, td5);
+        console.log(tr);
+
+        document.getElementById('body').append(tr)
+
+        td5.addEventListener('click', function() {
+            del(el, index);
+        });
+
+
+    }
+    let bookmarkdata = JSON.parse(localStorage.getItem('bookmarkdata')) || [];
+
+    function del(el, index) {
+
+        document.getElementById('body').innerHTML = "";
+        bookmarkdata.push(el);
+        localStorage.setItem("bookmarkdata", JSON.stringify(bookmarkdata));
+        allData.splice(index, 1);
+        localStorage.setItem("jsonAppliedData", JSON.stringify(allData));
+        allData.forEach(appending);
+
+    }
+</script>
+
+</html>

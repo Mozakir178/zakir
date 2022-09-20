@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini calculator</title>
+    <style>
+        div:first-of-type {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(2, 30px);
+            width: 30%;
+            margin: 50px auto;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        div:last-of-type {
+            display: grid;
+            width: 50%;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 30px);
+            margin: auto;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <input type="number" id="id1" placeholder="enter number 1">
+        <input type="number" id="id2" placeholder="enter number 2">
+    </div>
+
+    <br>
+    <div>
+        <button class="btn">Add</button>
+        <button class="btn">Subtract </button>
+        <button class="btn">Divide</button>
+        <button class="btn">Multiply</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let z = document.querySelectorAll(".btn");
+    // console.log(z)
+
+    document.querySelector(".btn").addEventListener("click", function add() {
+        let a = document.getElementById("id1").value;
+        let b = document.getElementById("id2").value;
+        a = Number(a);
+        b = Number(b);
+        alert(a + b)
+    })
+
+    z[1].addEventListener("click", function add() {
+        let a = document.getElementById("id1").value;
+        let b = document.getElementById("id2").value;
+        a = Number(a);
+        b = Number(b);
+        alert(a - b)
+    })
+
+
+    z[2].addEventListener("click", function add() {
+        let a = document.getElementById("id1").value;
+        let b = document.getElementById("id2").value;
+        a = Number(a);
+        b = Number(b);
+        alert(a / b)
+    })
+
+
+    z[3].addEventListener("click", function add() {
+        let a = document.getElementById("id1").value;
+        let b = document.getElementById("id2").value;
+        a = Number(a);
+        b = Number(b);
+        alert(a * b)
+    })
+</script>
